@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  src: url("/fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  src: url("/fonts/RobotoSlab-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cascadia Mono";
+  font-weight: 400;
+  src: url("/fonts/CascadiaMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cascadia Mono";
+  font-weight: 700;
+  src: url("/fonts/CascadiaMono-Bold.ttf") format("truetype");
+}
+
+svg.table-icon {
+  display: inline !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply text-red;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "lock": false,
+  "tasks": {
+    "check": "deno fmt && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "manifest": "deno task cli manifest $(pwd)",
+    "dev": "deno run -A --unstable-kv --unstable-ffi --watch=static/,routes/ dev.ts",
+    "build": "deno run -A --unstable-kv --unstable-ffi dev.ts build",
+    "preview": "deno run --allow-env --allow-read --allow-write --allow-net --allow-ffi --unstable-kv main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update ."
+  },
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "@db/sqlite": "jsr:@db/sqlite@^0.12.0",
+    "@panva/oauth4webapi": "jsr:@panva/oauth4webapi@^3.1.2",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
+    "@std/http": "jsr:@std/http@^1.0.9",
+    "@tabler/icons-preact": "npm:@tabler/icons-preact@^3.21.0",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "tailwindcss": "npm:tailwindcss@3.4.1",
+    "tailwindcss/": "npm:tailwindcss@3.4.1/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1"
+  },
+  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "nodeModulesDir": "auto"
+}
