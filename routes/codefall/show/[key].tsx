@@ -22,7 +22,7 @@ export const handler: Handlers = {
     } else {
       const claimedCode = getClaimedCode(context.params.key, session.userId);
       if (claimedCode === undefined) {
-        return redirect("/sadface");
+        return redirect("/codefall/claimed");
       } else {
         return await context.render(claimedCode);
       }

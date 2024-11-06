@@ -6,10 +6,10 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $codefall from "./routes/codefall.tsx";
 import * as $codefall_key_ from "./routes/codefall/[key].tsx";
+import * as $codefall_claimed from "./routes/codefall/claimed.tsx";
 import * as $codefall_show_key_ from "./routes/codefall/show/[key].tsx";
 import * as $contribute from "./routes/contribute.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $sadface from "./routes/sadface.tsx";
 
 import type { Manifest } from "$fresh/server.ts";
 
@@ -19,10 +19,10 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/codefall.tsx": $codefall,
     "./routes/codefall/[key].tsx": $codefall_key_,
+    "./routes/codefall/claimed.tsx": $codefall_claimed,
     "./routes/codefall/show/[key].tsx": $codefall_show_key_,
     "./routes/contribute.tsx": $contribute,
     "./routes/index.tsx": $index,
-    "./routes/sadface.tsx": $sadface,
   },
   islands: {},
   baseUrl: import.meta.url,

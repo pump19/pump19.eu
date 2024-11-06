@@ -39,10 +39,7 @@ export class SessionStore {
   }
 
   /// Add a temporary OAuth session to the store.
-  async setOAuthSession(
-    id: string,
-    value: OAuthSession,
-  ) {
+  async setOAuthSession(id: string, value: OAuthSession) {
     const key = SessionStore.oauthSessionKey(id);
     await this.store.set(key, value, {
       expireIn: this.OAUTH_SESSION_TIMEOUT,
@@ -50,26 +47,18 @@ export class SessionStore {
   }
 
   /// Retrieve and delete a temporary OAuth session from the store.
-  async cutOAuthSession(
-    id: string,
-  ) {
+  async cutOAuthSession(id: string) {
     const key = SessionStore.oauthSessionKey(id);
     const oauthSessionRes = await this.store.get<OAuthSession>(key);
     const oauthSession = oauthSessionRes.value;
 
-    await this.store.atomic()
-      .check(oauthSessionRes)
-      .delete(key)
-      .commit();
+    await this.store.atomic().check(oauthSessionRes).delete(key).commit();
 
     return oauthSession ?? undefined;
   }
 
   /// Add a permanent site session to the store.
-  async setSiteSession(
-    id: string,
-    value: SiteSession,
-  ) {
+  async setSiteSession(id: string, value: SiteSession) {
     const key = SessionStore.siteSessionKey(id);
     await this.store.set(key, value, {
       expireIn: this.SITE_SESSION_TIMEOUT,
@@ -77,18 +66,14 @@ export class SessionStore {
   }
 
   /// Get a permanent site session from the store.
-  async getSiteSession(
-    id: string,
-  ) {
+  async getSiteSession(id: string) {
     const key = SessionStore.siteSessionKey(id);
     const siteSessionRes = await this.store.get<SiteSession>(key);
     return siteSessionRes.value ?? undefined;
   }
 
   /// Remove a permanent site session from the store.
-  async delSiteSession(
-    id: string,
-  ) {
+  async delSiteSession(id: string) {
     const key = SessionStore.siteSessionKey(id);
     await this.store.delete(key);
   }

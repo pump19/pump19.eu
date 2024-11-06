@@ -45,7 +45,7 @@ export const handler: Handlers = {
     } else {
       const unclaimedCode = getUnclaimedCode(context.params.key);
       if (unclaimedCode === undefined) {
-        return redirect("/sadface");
+        return redirect("/codefall/claimed");
       } else {
         return await context.render(unclaimedCode);
       }
@@ -70,7 +70,7 @@ export const handler: Handlers = {
       const success = 1 === tryClaim(key, claimee);
 
       return redirect(
-        success ? `/codefall/show/${key}` : "/sadface",
+        success ? `/codefall/show/${key}` : "/codefall/claimed",
         STATUS_CODE.SeeOther,
       );
     }

@@ -1,27 +1,24 @@
 import { Head } from "$fresh/runtime.ts";
 
+import { IconError404 } from "@tabler/icons-preact";
+
+import { Sadface } from "../components/Sadface.tsx";
+import { H1 } from "../components/Headings.tsx";
+import { P } from "../components/Paragraph.tsx";
+
 export default function Error404() {
   return (
     <>
       <Head>
-        <title>404 - Page not found</title>
+        <title>Pump19 | Page Not Found</title>
       </Head>
-      <div class="px-4 py-8 mx-auto bg-[#86efac]">
-        <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-          <img
-            class="my-6"
-            src="/logo.svg"
-            width="128"
-            height="128"
-            alt="the Fresh logo: a sliced lemon dripping with juice"
-          />
-          <h1 class="text-4xl font-bold">404 - Page not found</h1>
-          <p class="my-4">
-            The page you were looking for doesn't exist.
-          </p>
-          <a href="/" class="underline">Go back home</a>
-        </div>
-      </div>
+      <Sadface>
+        <H1 icon={<IconError404 />} content="Page Not Found" />
+        <P>
+          Sorry, the page you were trying to view does not exist. Please make
+          sure you have the correct URL or return <a href="/">home</a>.
+        </P>
+      </Sadface>
     </>
   );
 }

@@ -25,7 +25,7 @@ const PUMP19_AUTH_CALLBACK_URL = Deno.env.get("PUMP19_AUTH_CALLBACK_URL")!;
 // we really only need the display name
 // `sub` contains the user ID, which we use internall
 // in the UI, we want to display the user's name
-const CLAIMS = JSON.stringify({ id_token: { "preferred_username": null } });
+const CLAIMS = JSON.stringify({ id_token: { preferred_username: null } });
 
 // oauth4webapi discovers the endpoints for the Twitch OAuth2 provider
 const TWITCH_ISSUER = new URL("https://id.twitch.tv/oauth2");
@@ -67,10 +67,7 @@ const Routes: PluginRoute[] = [
         authorizationServer.authorization_endpoint!,
       );
       authorizationUrl.searchParams.set("claims", CLAIMS);
-      authorizationUrl.searchParams.set(
-        "client_id",
-        oauthClient.client_id,
-      );
+      authorizationUrl.searchParams.set("client_id", oauthClient.client_id);
       authorizationUrl.searchParams.set("scope", "openid");
       authorizationUrl.searchParams.set("response_type", "code");
       authorizationUrl.searchParams.set("force_verify", "true");
@@ -115,31 +112,36 @@ const Routes: PluginRoute[] = [
      * This information is stored in a site session for future use.
      */
     handler: async (request: Request) => {
-      const oauthSessionId = retrieveSessionCookie(
-        request,
-        SessionType.OAUTH,
-      );
+      const oauthSessionId = retrieveSessionCookie(request, SessionType.OAUTH);
       if (oauthSessionId === undefined) {
-        return redirect("/", STATUS_CODE.BadRequest);
+        console.warn("No OAuth session ID found");
+        return redirect("/", STATUS_CODE.SeeOther);
       }
-      const oauthSession = await sessionStore.cutOAuthSession(
-        oauthSessionId,
-      );
+      const oauthSession = await sessionStore.cutOAuthSession(oauthSessionId);
       if (oauthSession === undefined) {
-        return redirect("/", STATUS_CODE.BadRequest);
+        console.warn("No OAuth session found");
+        return redirect("/", STATUS_CODE.SeeOther);
       }
 
-      const params = oauth.validateAuthResponse(
-        authorizationServer,
-        oauthClient,
-        new URL(request.url),
-        oauthSession.state,
-      );
+      let params: URLSearchParams;
+      try {
+        params = oauth.validateAuthResponse(
+          authorizationServer,
+          oauthClient,
+          new URL(request.url),
+          oauthSession.state,
+        );
+      } catch (error) {
+        console.warn(
+          "Invalid OAuth response:",
+          (error as oauth.AuthorizationResponseError).error_description ??
+            "unknown error",
+        );
+        return redirect("/", STATUS_CODE.SeeOther);
+      }
 
       const getResponse = async () => {
-        const clientAuth = oauth.ClientSecretPost(
-          PUMP19_TWITCH_CLIENT_SECRET,
-        );
+        const clientAuth = oauth.ClientSecretPost(PUMP19_TWITCH_CLIENT_SECRET);
         const codeVerifier = oauth.generateRandomCodeVerifier();
         const origResponse = await oauth.authorizationCodeGrantRequest(
           authorizationServer,
@@ -203,10 +205,7 @@ const Routes: PluginRoute[] = [
      * Should the user log in again, a new session and cookie will be created.
      */
     handler: async (request: Request) => {
-      const siteSessionId = retrieveSessionCookie(
-        request,
-        SessionType.SITE,
-      );
+      const siteSessionId = retrieveSessionCookie(request, SessionType.SITE);
       if (siteSessionId !== undefined) {
         await sessionStore.delSiteSession(siteSessionId);
       }
@@ -225,10 +224,7 @@ const SiteSessionMiddleware: PluginMiddleware<SessionState> = {
   path: "/",
   middleware: {
     handler: async (request: Request, context: FreshContext<SessionState>) => {
-      const siteSessionId = retrieveSessionCookie(
-        request,
-        SessionType.SITE,
-      );
+      const siteSessionId = retrieveSessionCookie(request, SessionType.SITE);
       const session = siteSessionId
         ? await sessionStore.getSiteSession(siteSessionId)
         : undefined;
