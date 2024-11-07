@@ -89,12 +89,12 @@ export default function Show({ state, data }: PageProps) {
         <script async defer src="https://js.hcaptcha.com/1/api.js" />
       </Head>
       <section class="flex flex-col items-center">
-        <H1 icon={<IconAlmost />} content="Claim Code" />
+        <H1 icon={<IconAlmost />}>Claim Code"</H1>
         <P>
           <strong>{displayName}</strong>, you're just one step away from
           claiming the following code.
         </P>
-        <H2 content={preview} />
+        <H2>{preview}</H2>
         <form
           id="codefall-claim"
           class="flex flex-col items-center"

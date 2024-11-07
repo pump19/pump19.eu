@@ -13,7 +13,7 @@ export default function Error404() {
         <title>Pump19 | Page Not Found</title>
       </Head>
       <Sadface>
-        <H1 icon={<IconError404 />} content="Page Not Found" />
+        <H1 icon={<IconError404 />}>Page Not Found</H1>
         <P>
           Sorry, the page you were trying to view does not exist. Please make
           sure you have the correct URL or return <a href="/">home</a>.

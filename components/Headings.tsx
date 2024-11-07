@@ -1,14 +1,14 @@
-import { JSX } from "preact";
+import { ComponentChildren, JSX } from "preact";
 
 interface HeadingProps {
-  content: string;
+  children: ComponentChildren;
   icon?: JSX.Element;
 }
 
 const commonStyle = "text-white font-bold my-2 flex items-baseline";
 const iconStyle = "mr-2 self-center";
 
-export function H1({ content, icon }: HeadingProps) {
+export function H1({ children, icon }: HeadingProps) {
   if (icon) {
     icon.props.size = "2.5rem";
     icon.props.class = iconStyle;
@@ -16,12 +16,12 @@ export function H1({ content, icon }: HeadingProps) {
   return (
     <h1 class={`${commonStyle} text-3xl`}>
       {icon}
-      {content}
+      {children}
     </h1>
   );
 }
 
-export function H2({ content, icon }: HeadingProps) {
+export function H2({ children, icon }: HeadingProps) {
   if (icon) {
     icon.props.size = "2rem";
     icon.props.class = iconStyle;
@@ -29,7 +29,7 @@ export function H2({ content, icon }: HeadingProps) {
   return (
     <h2 class={`${commonStyle} text-2xl`}>
       {icon}
-      {content}
+      {children}
     </h2>
   );
 }

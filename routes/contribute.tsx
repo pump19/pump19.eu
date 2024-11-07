@@ -25,21 +25,21 @@ function Repository({
   icon.props.class = "mr-2 self-center";
 
   return (
-    <div class="border-black border rounded-t m-4 p-0 flex flex-col font-bold min-w-80">
-      <h3 class="bg-black p-2 text-white text-xl rounded-t flex items-baseline justify-center">
+    <div class="m-4 flex min-w-80 flex-col rounded-t border border-black p-0 font-bold">
+      <h3 class="flex items-baseline justify-center rounded-t bg-black p-2 text-xl text-white">
         {icon}
         {name}
       </h3>
       <a
         href={href}
-        class="bg-green text-white text-lg p-2 flex items-baseline justify-center"
+        class="flex items-baseline justify-center bg-green p-2 text-lg text-white"
       >
         <IconGitFork class="mr-2 self-center" />
         Repository
       </a>
       <a
         href={`${href}/issues`}
-        class="bg-orange text-white text-lg p-2 flex items-baseline justify-center"
+        class="flex items-baseline justify-center bg-orange p-2 text-lg text-white"
       >
         <IconBug class="mr-2 self-center" />
         Issue Tracker
@@ -54,7 +54,7 @@ export default function Contribute() {
       <Head>
         <title>Pump19 | Contribute</title>
       </Head>
-      <H1 icon={<IconContribute />} content="Contribute to Pump19" />
+      <H1 icon={<IconContribute />}>Contribute to Pump19"</H1>
       <P>
         Do you think Pump19 needs a new <dfn>Chem</dfn>{" "}
         (the magic words that power a golem)? That can be arranged easily
@@ -73,7 +73,7 @@ export default function Contribute() {
         contribute your own functionality.
       </P>
 
-      <H2 content="Repositories" icon={<IconGitFork />} />
+      <H2 icon={<IconGitFork />}>Repositories</H2>
       <P>
         There exist two distinct source code repositories: one for the chat
         golem itself and one for this website.

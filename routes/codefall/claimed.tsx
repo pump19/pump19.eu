@@ -7,7 +7,7 @@ import { H1 } from "../../components/Headings.tsx";
 export default function Claimed() {
   return (
     <Sadface>
-      <H1 icon={<IconGiftOff />} content="Already Claimed!" />
+      <H1 icon={<IconGiftOff />}>Already Claimed!"</H1>
       <P>
         Sorry, the code you were trying to view is already claimed by someone
         else. Better luck next time!

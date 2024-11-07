@@ -39,12 +39,12 @@ export default function Show({ state, data }: PageProps) {
         <title>Pump19 | Codefall - Claimed Code</title>
       </Head>
       <section class="flex flex-col items-center">
-        <H1 icon={<IconCongratulations />} content="Congratulations!" />
+        <H1 icon={<IconCongratulations />}>Congratulations!</H1>
         <P>
           <strong>{displayName}</strong>, you have successfully claimed the
           following code:
         </P>
-        <H2 icon={<IconGamepad />} content={description} />
+        <H2 icon={<IconGamepad />}>{description}</H2>
         <code class="bg-white text-red-dark text-xl font-bold font-mono p-1 rounded">
           {code}
         </code>

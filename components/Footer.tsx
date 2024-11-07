@@ -28,8 +28,8 @@ function Link({
 
 export default function Footer() {
   return (
-    <footer class="bg-gray-dark border-t-black border-t-2">
-      <section class="container text-center py-4">
+    <footer class="border-t-2 border-t-black bg-gray-dark">
+      <section class="container py-4 text-center">
         <p>
           Powered by
           <Link name="Deno" href="https://deno.com" icon={<IconBrandDeno />} />,

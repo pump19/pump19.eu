@@ -42,7 +42,7 @@ function MenuItem({ name, href, icon, active }: MenuItemProps) {
   return (
     <a
       href={href}
-      class={`${style} hover:text-white hover:bg-gray px-4 py-4 flex items-center`}
+      class={`${style} flex items-center px-4 py-4 hover:bg-gray hover:text-white`}
     >
       {icon} {name}
     </a>

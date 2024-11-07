@@ -10,7 +10,7 @@ export default function Home() {
       <Head>
         <title>Pump19 | Home</title>
       </Head>
-      <H1 icon={<IconLogo />} content="Pump19 Twitch Chat Golem" />
+      <H1 icon={<IconLogo />}>Pump19 Twitch Chat Golem"</H1>
       <P>
         <strong>Pump19</strong>{" "}
         is an IRC and Twitch.tv chat golem (more commonly known as a bot) doing
@@ -18,11 +18,12 @@ export default function Home() {
         <a href="/commands">menial work</a> in the{" "}
         <a href="http://twitch.tv/loadingreadyrun/">
           LoadingReadyRun Twitch Chat
-        </a>. It provides a few additional services not currently supported by
-        the otherwise excellent and certainly more crucial{" "}
+        </a>
+        . It provides a few additional services not currently supported by the
+        otherwise excellent and certainly more crucial{" "}
         <a href="http://lrrbot.mrphlip.com/">LRRbot</a>.
       </P>
-      <H2 content="Why is it called &quot;Pump19&quot;" />
+      <H2>Why is it called "Pump19"</H2>
       <P>
         The name is a reference to Terry Pratchett's Discworld novel{" "}
         <em>Going Postal</em>. Prior to{" "}
@@ -33,7 +34,7 @@ export default function Home() {
         instead) spent over two hundred years operating one of a series of
         underwater pumps, thus earning its designation:
       </P>
-      <blockquote class="bg-gray-light border-l-8 border-red m-2 p-5">
+      <blockquote class="m-2 border-l-8 border-red bg-gray-light p-5">
         <p>
           Pump Is Not My Name, Mr. Lipvig. It Is My Description. Pump. Pump 19,
           To Be Precise. I Stood At The Bottom Of A Hole Two Hundred Feet Deep

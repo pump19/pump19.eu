@@ -20,7 +20,7 @@ export default function App({ Component, route, state }: PageProps) {
           href="data:image/gif;base64,R0lGODlhEAAQAOMJAAABACcgFkE2IllMMnJiQop3Uf92AP+pAP/MBv///////////////////////////yH5BAEKAA8ALAAAAAAQABAAAARf8MkHqrVzAjGIJ0UIZNvQfZ4olSeajhQ3CEFN0HVRyYNxGAGCD6gDBAScA+IQGCiZRRpnaBoKokeTidfRxTgfpODj3cgIrZP3a6q5QeuYKVWgw9jdkIqEVO8zFBcYEhEAOw=="
         />
       </head>
-      <body class="font-serif bg-gray text-white-dim min-h-screen flex flex-col">
+      <body class="flex min-h-screen flex-col bg-gray font-serif text-white-dim">
         <Header session={session} path={route} />
         <main class="container flex-grow p-4">
           <Component />
