@@ -88,7 +88,7 @@ export default function Contribute() {
         <Repository
           name="Pump19 Website"
           icon={<IconWorldWww />}
-          href="https://github.com/pump19/pump19.eu-fresh"
+          href="https://github.com/pump19/pump19.eu"
         />
       </section>
     </>

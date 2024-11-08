@@ -82,7 +82,7 @@ function CodeForm() {
       <Head>
         <title>Pump19 | Codefall</title>
       </Head>
-      <H1>Add a New Entry</H1>
+      <H2>Add a New Entry</H2>
       <section class="mx-4 rounded-t border border-black bg-gray-light">
         <h3 class="flex items-baseline gap-4 rounded-t bg-gray-dark px-4 py-2 font-bold text-white">
           <IconCodePlus class="self-center" /> New Codefall Entry

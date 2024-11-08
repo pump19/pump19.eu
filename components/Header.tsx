@@ -53,14 +53,14 @@ export function Home({ active }: { active: boolean }) {
 
 function MenuItem({ name, href, icon, active }: MenuItemProps) {
   const style = active ? ["bg-red", "text-white"] : ["text-red"];
-  icon.props.size = "2rem";
+  icon.props.size = "1.5rem";
   icon.props.class = "mr-1 self-center";
 
   return (
     <a
       href={href}
       class={[
-        "inline-flex items-center text-2xl font-bold hover:bg-gray hover:text-white p-4",
+        "inline-flex items-center text-xl font-bold hover:bg-gray hover:text-white p-4",
         ...style,
       ].join(" ")}
     >
@@ -70,19 +70,29 @@ function MenuItem({ name, href, icon, active }: MenuItemProps) {
 }
 
 function AuthItem({ loggedIn }: { loggedIn: boolean }) {
-  const commonStyle = "rounded-md mt-2 p-2 inline-flex items-baseline self-end";
+  const commonStyle = [
+    "rounded-md",
+    "mt-2",
+    "p-2",
+    "inline-flex",
+    "items-baseline",
+    "self-end",
+  ];
   if (loggedIn) {
     return (
       <a
         href="/auth/logout?redirect=/"
-        class={`bg-gray text-white ${commonStyle}`}
+        class={["bg-gray", "text-white", ...commonStyle].join(" ")}
       >
         Logout <IconLogout class="ml-1 self-center" />
       </a>
     );
   } else {
     return (
-      <a href="/auth/login" class={`bg-red text-white ${commonStyle}`}>
+      <a
+        href="/auth/login"
+        class={["bg-red", "text-white", ...commonStyle].join(" ")}
+      >
         <IconLogin class="mr-1 self-center" /> Login
       </a>
     );

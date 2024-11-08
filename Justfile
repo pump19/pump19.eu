@@ -1,7 +1,7 @@
 set dotenv-load
 
 revision := `jj log --limit 1 --no-graph --template 'change_id ++ " " ++ commit_id'`
-image := "ghcr.io/pump19/pump19.eu-fresh:latest"
+image := "ghcr.io/pump19/pump19.eu:latest"
 
 container:
     buildah build --build-arg JJ_REVISION="{{revision}}" -t {{image}} .
