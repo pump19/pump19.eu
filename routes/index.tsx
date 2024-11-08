@@ -10,7 +10,7 @@ export default function Home() {
       <Head>
         <title>Pump19 | Home</title>
       </Head>
-      <H1 icon={<IconLogo />}>Pump19 Twitch Chat Golem"</H1>
+      <H1 icon={<IconLogo />}>Pump19 Twitch Chat Golem</H1>
       <P>
         <strong>Pump19</strong>{" "}
         is an IRC and Twitch.tv chat golem (more commonly known as a bot) doing

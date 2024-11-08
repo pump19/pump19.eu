@@ -84,7 +84,7 @@ function CodeForm() {
       </Head>
       <H1>Add a New Entry</H1>
       <section class="mx-4 rounded-t border border-black bg-gray-light">
-        <h3 class="col-span-5 flex items-baseline gap-4 rounded-t bg-gray-dark px-4 py-2 font-bold text-white">
+        <h3 class="flex items-baseline gap-4 rounded-t bg-gray-dark px-4 py-2 font-bold text-white">
           <IconCodePlus class="self-center" /> New Codefall Entry
         </h3>
         <form
@@ -96,14 +96,14 @@ function CodeForm() {
         >
           <label
             for="codefallDesc"
-            class="inline-flex items-baseline font-bold"
+            class="col-span-6 sm:col-span-1 inline-flex items-baseline font-bold"
           >
             <IconInfo class="mr-2 self-center" />
             Description
           </label>
           <input
             required
-            class="col-span-5 border-2 border-black p-2 font-bold text-black invalid:border-red"
+            class="col-span-6 sm:col-span-5 border-2 border-black p-2 font-bold text-black invalid:border-red"
             type="text"
             name="description"
             id="codefallDesc"
@@ -112,14 +112,14 @@ function CodeForm() {
           />
           <label
             for="codefallCode"
-            class="inline-flex items-baseline font-bold"
+            class="col-span-6 sm:col-span-1 inline-flex items-baseline font-bold"
           >
             <IconKey class="mr-2 self-center" />
             Link or Key
           </label>
           <input
             required
-            class="col-span-5 border-2 border-black p-2 font-mono font-bold text-black invalid:border-red"
+            class="col-span-6 sm:col-span-5 border-2 border-black p-2 font-mono font-bold text-black invalid:border-red"
             type="text"
             name="code"
             id="codefallCode"
@@ -128,14 +128,14 @@ function CodeForm() {
           />
           <label
             for="codefallType"
-            class="inline-flex items-baseline font-bold"
+            class="col-span-6 sm:col-span-1 inline-flex items-baseline font-bold"
           >
             <IconGamepad class="mr-2 self-center" />
             Code Type
           </label>
           <select
             required
-            class="col-span-5 border-2 border-black p-2 invalid:border-red"
+            class="col-span-6 sm:col-span-5 border-2 border-black p-2 invalid:border-red"
             name="code_type"
             id="codefallType"
           >

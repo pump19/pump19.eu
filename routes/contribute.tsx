@@ -54,7 +54,7 @@ export default function Contribute() {
       <Head>
         <title>Pump19 | Contribute</title>
       </Head>
-      <H1 icon={<IconContribute />}>Contribute to Pump19"</H1>
+      <H1 icon={<IconContribute />}>Contribute to Pump19</H1>
       <P>
         Do you think Pump19 needs a new <dfn>Chem</dfn>{" "}
         (the magic words that power a golem)? That can be arranged easily

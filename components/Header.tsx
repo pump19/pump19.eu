@@ -4,6 +4,7 @@ import {
   IconGiftFilled as IconCodefall,
   IconLogin,
   IconLogout,
+  IconMenu2 as IconMenu,
   IconSourceCode as IconContribute,
   //IconPuzzle as IconBingo,
   //IconTerminal2 as IconCommands,
@@ -34,15 +35,34 @@ const menuItems = [
   },
 ];
 
+export function Home({ active }: { active: boolean }) {
+  const background = active ? "bg-gray" : "bg-gray-dark";
+  return (
+    <a
+      href="/"
+      class={[
+        "flex items-center text-white hover:bg-gray p-4",
+        background,
+      ].join(" ")}
+    >
+      <IconLogo size="2.5rem" class="mr-1" />
+      <h1 class="text-3xl font-bold">Pump19</h1>
+    </a>
+  );
+}
+
 function MenuItem({ name, href, icon, active }: MenuItemProps) {
-  const style = active ? "bg-red text-white" : "text-red";
-  icon.props.size = "1.5rem";
+  const style = active ? ["bg-red", "text-white"] : ["text-red"];
+  icon.props.size = "2rem";
   icon.props.class = "mr-1 self-center";
 
   return (
     <a
       href={href}
-      class={`${style} flex items-center px-4 py-4 hover:bg-gray hover:text-white`}
+      class={[
+        "inline-flex items-center text-2xl font-bold hover:bg-gray hover:text-white p-4",
+        ...style,
+      ].join(" ")}
     >
       {icon} {name}
     </a>
@@ -50,7 +70,7 @@ function MenuItem({ name, href, icon, active }: MenuItemProps) {
 }
 
 function AuthItem({ loggedIn }: { loggedIn: boolean }) {
-  const commonStyle = "rounded-md m-3 p-2 inline-flex items-baseline";
+  const commonStyle = "rounded-md mt-2 p-2 inline-flex items-baseline self-end";
   if (loggedIn) {
     return (
       <a
@@ -72,16 +92,24 @@ function AuthItem({ loggedIn }: { loggedIn: boolean }) {
 export default function Header({ session, path }: HeaderProps) {
   return (
     <header class="bg-gray-dark">
-      <section class="container flex">
-        <nav class="flex">
-          {menuItems.map((item) => (
-            <MenuItem {...item} active={item.href == path} />
-          ))}
-        </nav>
-        <div class="flex flex-grow justify-end">
-          <AuthItem loggedIn={session !== undefined} />
-        </div>
-      </section>
+      <nav class="container flex">
+        <Home active={path == "/"} />
+        <div class="flex-grow flex-shrink" />
+        <details class="relative group">
+          <summary class="flex justify-end">
+            <IconMenu
+              size="2.5rem"
+              class="m-4 bg-red text-white group-open:bg-gray-light group-open:text-white-bright rounded"
+            />
+          </summary>
+          <div class="absolute right-0 flex flex-col border border-black border-t-0 bg-gray-dark drop-shadow-md p-4">
+            {menuItems.map((item) => (
+              <MenuItem {...item} active={item.href == path} />
+            ))}
+            <AuthItem loggedIn={session !== undefined} />
+          </div>
+        </details>
+      </nav>
     </header>
   );
 }
