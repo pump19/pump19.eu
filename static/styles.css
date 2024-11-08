@@ -2,24 +2,28 @@
   font-family: "Roboto Slab";
   font-weight: 400;
   src: url("/fonts/RobotoSlab-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto Slab";
   font-weight: 700;
   src: url("/fonts/RobotoSlab-Bold.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Cascadia Mono";
   font-weight: 400;
   src: url("/fonts/CascadiaMono-Regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Cascadia Mono";
   font-weight: 700;
   src: url("/fonts/CascadiaMono-Bold.ttf") format("truetype");
+  font-display: swap;
 }
 
 @tailwind base;
