@@ -14,9 +14,11 @@ import { H1, H2 } from "../../components/Headings.tsx";
 import { P } from "../../components/Paragraph.tsx";
 import redirect from "../../utils/redirect.ts";
 
-const PUMP19_CAPTCHA_SITEKEY = Deno.env.get("PUMP19_CAPTCHA_SITEKEY") ??
+const PUMP19_CAPTCHA_SITEKEY =
+  Deno.env.get("PUMP19_CAPTCHA_SITEKEY") ??
   "10000000-ffff-ffff-ffff-000000000001";
-const PUMP19_CAPTCHA_SECRET = Deno.env.get("PUMP19_CAPTCHA_SECRET") ??
+const PUMP19_CAPTCHA_SECRET =
+  Deno.env.get("PUMP19_CAPTCHA_SECRET") ??
   "0x0000000000000000000000000000000000000000";
 
 async function verifyCaptchaResponse(token: string) {
@@ -89,7 +91,7 @@ export default function Show({ state, data }: PageProps) {
         <script async defer src="https://js.hcaptcha.com/1/api.js" />
       </Head>
       <section class="flex flex-col items-center">
-        <H1 icon={<IconAlmost />}>Claim Code"</H1>
+        <H1 icon={<IconAlmost />}>Claim Code</H1>
         <P>
           <strong>{displayName}</strong>, you're just one step away from
           claiming the following code.
@@ -109,15 +111,13 @@ export default function Show({ state, data }: PageProps) {
             data-size="normal"
             data-theme="light"
             data-callback="onCaptchaSuccess"
-          >
-          </div>
+          ></div>
         </form>
       </section>
       <script
         type="text/javascript"
         dangerouslySetInnerHTML={{
-          __html:
-            `function onCaptchaSuccess(_token) { document.getElementById("codefall-claim").submit(); }
+          __html: `function onCaptchaSuccess(_token) { document.getElementById("codefall-claim").submit(); }
           `,
         }}
       />
